@@ -1,0 +1,23 @@
+import { banglaFont } from '@/app/layout';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+const Banner = () => {
+    return (
+        <div className='flex justify-between items-center'>
+            {/* Banner content  */}
+            <div className='flex-1 space-y-5'>
+                <h2 className={`${banglaFont.className} text-7xl font-bold leading-20`}>আপনার শিশুকে দিন একটি <span className='text-primary'>সুন্দর ভবিষ্যৎ</span></h2>
+                <p>Get Up to 15% Discount For Every Toy</p>
+                <Link href={'/products'} className='btn btn-primary '>Explore Products</Link>
+            </div>
+            {/* Banner image  */}
+            <div className='flex-1'>
+                <Image alt='Get Up to 15% Discount For Every Toy' src={'/assets/hero.png'} width={500} height={400} />
+            </div>
+        </div>
+    );
+};
+
+export default Banner;
