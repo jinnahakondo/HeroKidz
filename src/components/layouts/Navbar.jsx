@@ -7,7 +7,7 @@ import { IoCartOutline } from "react-icons/io5";
 const Navbar = () => {
     const nav = <>
         <li> <NavLink href='/'> Home </NavLink></li>
-        <li> <NavLink href='/product'> Product </NavLink></li>
+        <li> <NavLink href='/products'> Products </NavLink></li>
         <li> <NavLink href='/blog'> Blog </NavLink></li>
         <li> <NavLink href='/contact'> Contact </NavLink></li>
     </>
