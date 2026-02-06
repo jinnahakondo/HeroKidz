@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar, FaShoppingCart, FaEye } from "react-icons/fa";
+import CartButton from "../buttons/CartButton";
 
 const ProductCard = ({ product }) => {
-  const { title, image, price, discount, ratings } = product;
+  const { title, image, price, discount, ratings, _id } = product;
 
   const discountedPrice = discount
     ? Math.round(price - (price * discount) / 100)
@@ -52,16 +54,11 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Actions */}
-        <div className="card-actions mt-3 justify-between">
-          <button className="btn btn-sm btn-outline">
-            <FaShoppingCart />
-            Add to Cart
-          </button>
-
-          <button className="btn btn-sm">
+        <div className="card-actions justify-between mt-auto ">
+          <Link href={`/products/${_id}`} className="btn btn-sm w-full">
             <FaEye />
             View
-          </button>
+          </Link>
         </div>
       </div>
     </div>

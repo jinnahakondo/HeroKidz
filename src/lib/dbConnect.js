@@ -4,7 +4,8 @@ const uri = process.env.MONGODB_URI;
 
 //collections
 export const collection = {
-  "PRODUCTS": "products"
+  "PRODUCTS": "products",
+  "USERS": "users",
 }
 
 if (!uri) throw new Error('uri not defined')
@@ -28,4 +29,4 @@ export const connectDb = async (cName) => {
   return coll
 }
 
-
+// export const userColl = await connectDb(collection.USERS)
