@@ -1,13 +1,15 @@
 'use client'
+import GoogleLogin from '@/components/buttons/GoogleLogin';
 import { postUser } from '@/server/auth';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaEnvelope, FaEye, FaEyeSlash, FaLock, FaUser } from 'react-icons/fa';
 
 const Register = () => {
     const [showPass, setShowPass] = useState(false)
-    const router = useRouter()
+    const params = useSearchParams()
+    const callbackUrl = params.get('callbackUrl') || '/'
     //handel resister form
     const handelRegister = async (e) => {
         e.preventDefault()
@@ -69,11 +71,11 @@ const Register = () => {
                             Register
                         </button>
                     </form>
-
+                    <GoogleLogin />
                     {/* Toggle */}
                     <p className="text-center mt-4 text-sm">
                         Already have an account?
-                        <Link href={'/login'}
+                        <Link href={`/login?callbackUrl=${callbackUrl}`}
                             className="ml-2 link link-primary"
                         >
                             Login
